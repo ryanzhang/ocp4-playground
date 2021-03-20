@@ -1,0 +1,29 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: "2021-03-19T12:35:59Z"
+  managedFields:
+  - apiVersion: rbac.authorization.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:roleRef:
+        f:apiGroup: {}
+        f:kind: {}
+        f:name: {}
+      f:subjects: {}
+    manager: Mozilla
+    operation: Update
+    time: "2021-03-19T12:35:59Z"
+  name: user-workload-monitoring-admin
+  namespace: openshift-user-workload-monitoring
+  resourceVersion: "433035"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/namespaces/openshift-user-workload-monitoring/rolebindings/user-workload-monitoring-admin
+  uid: f125f117-f17b-49d6-9b37-7d63d57be92d
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: user-workload-monitoring-config-edit
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: Group
+  name: developer
