@@ -1,11 +1,11 @@
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: external-infra-monitor
+  name: infra-{{ .Chart.Name }}
   namespace: external-service
 spec:
   endpoints:
-  - interval: 30s
+  - interval: {{ .Values.monitor.interval }}
     port: web
     scheme: http
   selector:

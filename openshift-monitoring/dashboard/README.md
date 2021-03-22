@@ -10,3 +10,5 @@ node_filesystem_avail_bytes
 
 rate(node_network_receive_bytes_total[1m])
 
+
+count(node_uname_info{instance =~ '.*0:9100'})
