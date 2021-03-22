@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: externalip-db
+  namespace: cctv-paas-sample
+spec:
+  externalIPs:
+  - 192.168.130.11
+  ports:
+  - name: postgresql
+    port: 5432
+    protocol: TCP
+    targetPort: 5432
+  selector:
+    app: todo-app-db
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
