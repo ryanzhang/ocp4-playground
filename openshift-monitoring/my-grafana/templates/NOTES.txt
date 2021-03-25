@@ -1,2 +1,0 @@
-1. Install grafana-operator
-2. Installed grafana & grafana-dashboard

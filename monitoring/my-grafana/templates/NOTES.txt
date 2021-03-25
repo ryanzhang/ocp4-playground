@@ -1,0 +1,2 @@
+1. Install or update grafana-operator
+2. Installed or update grafana & grafana-dashboard

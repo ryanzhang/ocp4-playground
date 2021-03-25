@@ -44,6 +44,8 @@ spec:
 它就是通过service进行Label match来查找metrics;
 
 # 自定义Dashboard
+**需要先在my-grafana中先转grafana operator**
+**需要更新values.yaml中的prometheusBearToken
 ## 安装自定义dashboard
 * 通过operatorHub安装grafana
 * my-grafana是自定义的dashbaord，区别于平台提供的,OCP4平台提供的grafana是只读的,目录里面还包含自定义的dashboard CR文件和raw json文件
