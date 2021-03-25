@@ -1,56 +1,7 @@
 {
-  "__inputs": [
-    {
-      "name": "DS__VICTORIAMETRICS",
-      "label": " VictoriaMetrics",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__requires": [
-    {
-      "type": "panel",
-      "id": "bargauge",
-      "name": "Bar gauge",
-      "version": ""
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "7.3.4"
-    },
-    {
-      "type": "panel",
-      "id": "graph",
-      "name": "Graph",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "table-old",
-      "name": "Table (old)",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:247",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -65,8 +16,8 @@
   "editable": true,
   "gnetId": 13105,
   "graphTooltip": 0,
-  "id": null,
-  "iteration": 1607508654474,
+  "id": 4,
+  "iteration": 1616666021786,
   "links": [
     {
       "icon": "bolt",
@@ -78,7 +29,6 @@
       "url": "https://grafana.com/dashboards/13105"
     },
     {
-      "$$hashKey": "object:831",
       "icon": "question",
       "tags": [
         "node_exporter"
@@ -90,7 +40,6 @@
       "url": "https://github.com/starsliao/Prometheus"
     },
     {
-      "$$hashKey": "object:1091",
       "asDropdown": true,
       "icon": "external link",
       "tags": [],
@@ -101,7 +50,7 @@
   "panels": [
     {
       "collapsed": false,
-      "datasource": "${DS__VICTORIAMETRICS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -115,7 +64,7 @@
     },
     {
       "cacheTimeout": null,
-      "datasource": "${DS__VICTORIAMETRICS}",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -165,7 +114,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "7.3.4",
+      "pluginVersion": "7.1.1",
       "targets": [
         {
           "expr": "sum (container_memory_working_set_bytes{origin_prometheus=~\"$origin_prometheus\",id=\"/\",node=~\"^$Node$\"}) / sum (machine_memory_bytes{origin_prometheus=~\"$origin_prometheus\",node=~\"^$Node$\"})",
@@ -199,7 +148,7 @@
     },
     {
       "cacheTimeout": null,
-      "datasource": "${DS__VICTORIAMETRICS}",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -249,7 +198,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "7.3.4",
+      "pluginVersion": "7.1.1",
       "targets": [
         {
           "expr": "sum (rate (container_cpu_usage_seconds_total{origin_prometheus=~\"$origin_prometheus\",id=\"/\",node=~\"^$Node$\"}[2m])) / sum (machine_cpu_cores{origin_prometheus=~\"$origin_prometheus\",node=~\"^$Node$\"})",
@@ -278,7 +227,7 @@
       "type": "bargauge"
     },
     {
-      "datasource": "${DS__VICTORIAMETRICS}",
+      "datasource": "Prometheus",
       "description": "集群节点数，节点POD数，节点POD上限",
       "fieldConfig": {
         "defaults": {
@@ -326,7 +275,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "7.3.4",
+      "pluginVersion": "7.1.1",
       "targets": [
         {
           "expr": "count(kube_node_info{origin_prometheus=~\"$origin_prometheus\"})",
@@ -358,7 +307,7 @@
       "type": "bargauge"
     },
     {
-      "datasource": "${DS__VICTORIAMETRICS}",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -472,7 +421,7 @@
           }
         ]
       },
-      "pluginVersion": "7.3.4",
+      "pluginVersion": "7.1.1",
       "targets": [
         {
           "expr": "count(kube_pod_info{origin_prometheus=~\"$origin_prometheus\",node=~\"^$Node$\"}) by (namespace)",
@@ -568,14 +517,13 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "${DS__VICTORIAMETRICS}",
+      "datasource": "Prometheus",
       "decimals": 2,
       "editable": true,
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -614,7 +562,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.4",
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -665,7 +613,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:750",
           "format": "binbps",
           "label": null,
           "logBase": 1,
@@ -674,7 +621,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:751",
           "format": "Bps",
           "label": null,
           "logBase": 1,
@@ -689,7 +635,7 @@
       }
     },
     {
-      "datasource": "${DS__VICTORIAMETRICS}",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -737,7 +683,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "7.3.4",
+      "pluginVersion": "7.1.1",
       "targets": [
         {
           "expr": "sum (machine_memory_bytes{origin_prometheus=~\"$origin_prometheus\",node=~\"^$Node$\"})",
@@ -774,7 +720,7 @@
       "type": "bargauge"
     },
     {
-      "datasource": "${DS__VICTORIAMETRICS}",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -822,7 +768,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "7.3.4",
+      "pluginVersion": "7.1.1",
       "targets": [
         {
           "expr": "sum (machine_cpu_cores{origin_prometheus=~\"$origin_prometheus\",node=~\"^$Node$\"})",
@@ -859,7 +805,7 @@
       "type": "bargauge"
     },
     {
-      "datasource": "${DS__VICTORIAMETRICS}",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -948,7 +894,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "7.3.4",
+      "pluginVersion": "7.1.1",
       "targets": [
         {
           "expr": "sum (container_fs_usage_bytes{origin_prometheus=~\"$origin_prometheus\",device=~\"^/dev/.*$\",id=\"/\",node=~\"^$Node$\"}) / sum (container_fs_limit_bytes{origin_prometheus=~\"$origin_prometheus\",device=~\"^/dev/.*$\",id=\"/\",node=~\"^$Node$\"})",
@@ -978,7 +924,203 @@
       "type": "bargauge"
     },
     {
-      "datasource": "${DS__VICTORIAMETRICS}",
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 11,
+        "x": 0,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 76,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "count(kube_pod_info{created_by_kind !~\"none|Job\" , namespace=~\"openshift-.*\"})",
+          "interval": "",
+          "legendFormat": "Infra Pod",
+          "refId": "A"
+        },
+        {
+          "expr": "count(kube_pod_info{created_by_kind !~\"none|Job\" , namespace!~\"openshift-.*\"})",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Pod数量曲线",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 5,
+        "w": 7,
+        "x": 11,
+        "y": 9
+      },
+      "hiddenSeries": false,
+      "id": 77,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "count(kube_pod_info{created_by_kind !~\"none|Job\" , namespace=~\"openshift-.*\"})",
+          "interval": "",
+          "legendFormat": "Infra Pod",
+          "refId": "A"
+        },
+        {
+          "expr": "count(kube_pod_info{created_by_kind !~\"none|Job\" , namespace!~\"openshift-.*\"})",
+          "interval": "",
+          "legendFormat": "",
+          "refId": "B"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Pod数量曲线",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1347,10 +1489,10 @@
         ]
       },
       "gridPos": {
-        "h": 11,
+        "h": 4,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 14
       },
       "id": 52,
       "options": {
@@ -1362,7 +1504,7 @@
           }
         ]
       },
-      "pluginVersion": "7.3.4",
+      "pluginVersion": "7.1.1",
       "targets": [
         {
           "expr": "count(kube_pod_info{origin_prometheus=~\"$origin_prometheus\",created_by_kind!~\"<none>|Job\",node=~\"^$Node$\"}) by (node)",
@@ -1711,18 +1853,18 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS__VICTORIAMETRICS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 20
+        "y": 18
       },
       "id": 61,
       "panels": [
         {
           "columns": [],
-          "datasource": "${DS__VICTORIAMETRICS}",
+          "datasource": "Prometheus",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -1745,7 +1887,6 @@
           },
           "styles": [
             {
-              "$$hashKey": "object:3003",
               "alias": "Time",
               "align": "auto",
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
@@ -1753,7 +1894,6 @@
               "type": "hidden"
             },
             {
-              "$$hashKey": "object:3004",
               "alias": "微服务",
               "align": "auto",
               "colorMode": null,
@@ -1771,7 +1911,6 @@
               "unit": "short"
             },
             {
-              "$$hashKey": "object:3005",
               "alias": "Pod名称",
               "align": "auto",
               "colorMode": null,
@@ -1789,7 +1928,6 @@
               "unit": "short"
             },
             {
-              "$$hashKey": "object:3006",
               "alias": "整体CPU%(最大100%)",
               "align": "auto",
               "colorMode": "cell",
@@ -1810,7 +1948,6 @@
               "unit": "percent"
             },
             {
-              "$$hashKey": "object:3007",
               "alias": "总CPU需求",
               "align": "auto",
               "colorMode": null,
@@ -1828,7 +1965,6 @@
               "unit": "short"
             },
             {
-              "$$hashKey": "object:3008",
               "alias": "总CPU限制",
               "align": "auto",
               "colorMode": null,
@@ -1846,7 +1982,6 @@
               "unit": "short"
             },
             {
-              "$$hashKey": "object:3009",
               "alias": "总内存使用(WSS)",
               "align": "auto",
               "colorMode": null,
@@ -1864,7 +1999,6 @@
               "unit": "bytes"
             },
             {
-              "$$hashKey": "object:3010",
               "alias": "总内存需求",
               "align": "auto",
               "colorMode": null,
@@ -1882,7 +2016,6 @@
               "unit": "bytes"
             },
             {
-              "$$hashKey": "object:3011",
               "alias": "总内存限制",
               "align": "auto",
               "colorMode": null,
@@ -1900,7 +2033,6 @@
               "unit": "bytes"
             },
             {
-              "$$hashKey": "object:3012",
               "alias": "节点",
               "align": "auto",
               "colorMode": null,
@@ -1918,7 +2050,6 @@
               "unit": "short"
             },
             {
-              "$$hashKey": "object:3015",
               "alias": "平均内存%(WSS)",
               "align": "",
               "colorMode": "cell",
@@ -1939,7 +2070,6 @@
               "unit": "percent"
             },
             {
-              "$$hashKey": "object:3016",
               "alias": "总磁盘使用",
               "align": "auto",
               "colorMode": "cell",
@@ -1960,7 +2090,6 @@
               "unit": "bytes"
             },
             {
-              "$$hashKey": "object:7903",
               "alias": "容器数",
               "align": "auto",
               "colorMode": null,
@@ -1978,7 +2107,6 @@
               "unit": "short"
             },
             {
-              "$$hashKey": "object:1769",
               "alias": "平均内存%(RSS)",
               "align": "auto",
               "colorMode": "cell",
@@ -1999,7 +2127,6 @@
               "unit": "percent"
             },
             {
-              "$$hashKey": "object:1780",
               "alias": "总内存使用(RSS) ",
               "align": "auto",
               "colorMode": null,
@@ -2017,7 +2144,6 @@
               "unit": "bytes"
             },
             {
-              "$$hashKey": "object:4993",
               "alias": "整体核数使用",
               "align": "auto",
               "colorMode": null,
@@ -2035,7 +2161,6 @@
               "unit": "short"
             },
             {
-              "$$hashKey": "object:3017",
               "alias": "",
               "align": "right",
               "colorMode": null,
@@ -2166,7 +2291,7 @@
         },
         {
           "columns": [],
-          "datasource": "${DS__VICTORIAMETRICS}",
+          "datasource": "Prometheus",
           "fieldConfig": {
             "defaults": {
               "custom": {}
@@ -2189,7 +2314,6 @@
           },
           "styles": [
             {
-              "$$hashKey": "object:3003",
               "alias": "Time",
               "align": "auto",
               "dateFormat": "YYYY-MM-DD HH:mm:ss",
@@ -2197,7 +2321,6 @@
               "type": "hidden"
             },
             {
-              "$$hashKey": "object:3004",
               "alias": "容器名",
               "align": "auto",
               "colorMode": null,
@@ -2215,7 +2338,6 @@
               "unit": "short"
             },
             {
-              "$$hashKey": "object:3005",
               "alias": "Pod名称",
               "align": "auto",
               "colorMode": null,
@@ -2233,7 +2355,6 @@
               "unit": "short"
             },
             {
-              "$$hashKey": "object:3006",
               "alias": "CPU%(最大100%)",
               "align": "auto",
               "colorMode": "cell",
@@ -2254,7 +2375,6 @@
               "unit": "percent"
             },
             {
-              "$$hashKey": "object:3007",
               "alias": "CPU需求",
               "align": "auto",
               "colorMode": null,
@@ -2272,7 +2392,6 @@
               "unit": "short"
             },
             {
-              "$$hashKey": "object:3008",
               "alias": "CPU限制",
               "align": "auto",
               "colorMode": null,
@@ -2290,7 +2409,6 @@
               "unit": "short"
             },
             {
-              "$$hashKey": "object:3009",
               "alias": "WSS",
               "align": "auto",
               "colorMode": null,
@@ -2308,7 +2426,6 @@
               "unit": "bytes"
             },
             {
-              "$$hashKey": "object:3010",
               "alias": "内存需求",
               "align": "auto",
               "colorMode": null,
@@ -2326,7 +2443,6 @@
               "unit": "bytes"
             },
             {
-              "$$hashKey": "object:3011",
               "alias": "内存限制",
               "align": "auto",
               "colorMode": null,
@@ -2344,7 +2460,6 @@
               "unit": "bytes"
             },
             {
-              "$$hashKey": "object:3012",
               "alias": "命名空间",
               "align": "auto",
               "colorMode": null,
@@ -2362,7 +2477,6 @@
               "unit": "short"
             },
             {
-              "$$hashKey": "object:3013",
               "alias": "状态",
               "align": "auto",
               "colorMode": null,
@@ -2381,7 +2495,6 @@
               "valueMaps": []
             },
             {
-              "$$hashKey": "object:3014",
               "alias": "重启",
               "align": "auto",
               "colorMode": "cell",
@@ -2402,7 +2515,6 @@
               "unit": "short"
             },
             {
-              "$$hashKey": "object:3015",
               "alias": "WSS%",
               "align": "",
               "colorMode": "cell",
@@ -2423,7 +2535,6 @@
               "unit": "percent"
             },
             {
-              "$$hashKey": "object:3016",
               "alias": "磁盘",
               "align": "auto",
               "colorMode": "cell",
@@ -2444,7 +2555,6 @@
               "unit": "bytes"
             },
             {
-              "$$hashKey": "object:509",
               "alias": "RSS",
               "align": "auto",
               "colorMode": null,
@@ -2462,7 +2572,6 @@
               "unit": "bytes"
             },
             {
-              "$$hashKey": "object:1791",
               "alias": "RSS%",
               "align": "auto",
               "colorMode": "cell",
@@ -2483,7 +2592,6 @@
               "unit": "percent"
             },
             {
-              "$$hashKey": "object:447",
               "alias": "heap",
               "align": "auto",
               "colorMode": null,
@@ -2501,7 +2609,6 @@
               "unit": "bytes"
             },
             {
-              "$$hashKey": "object:3024",
               "alias": "heap_max",
               "align": "auto",
               "colorMode": null,
@@ -2519,7 +2626,6 @@
               "unit": "bytes"
             },
             {
-              "$$hashKey": "object:3035",
               "alias": "noheap",
               "align": "auto",
               "colorMode": null,
@@ -2537,7 +2643,6 @@
               "unit": "bytes"
             },
             {
-              "$$hashKey": "object:3046",
               "alias": "noheap_max",
               "align": "auto",
               "colorMode": null,
@@ -2555,7 +2660,6 @@
               "unit": "bytes"
             },
             {
-              "$$hashKey": "object:13272",
               "alias": "使用核数",
               "align": "auto",
               "colorMode": null,
@@ -2573,7 +2677,6 @@
               "unit": "short"
             },
             {
-              "$$hashKey": "object:3017",
               "alias": "",
               "align": "right",
               "colorMode": null,
@@ -2753,12 +2856,12 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS__VICTORIAMETRICS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 19
       },
       "id": 49,
       "panels": [
@@ -2767,7 +2870,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS__VICTORIAMETRICS}",
+          "datasource": "Prometheus",
           "decimals": 3,
           "editable": true,
           "error": false,
@@ -2857,7 +2960,6 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:5607",
               "format": "percent",
               "label": "",
               "logBase": 1,
@@ -2866,7 +2968,6 @@
               "show": true
             },
             {
-              "$$hashKey": "object:5608",
               "format": "short",
               "label": null,
               "logBase": 1,
@@ -2885,7 +2986,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS__VICTORIAMETRICS}",
+          "datasource": "Prometheus",
           "decimals": 2,
           "editable": true,
           "error": false,
@@ -2979,7 +3080,6 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:5686",
               "format": "percent",
               "label": null,
               "logBase": 1,
@@ -2988,7 +3088,6 @@
               "show": true
             },
             {
-              "$$hashKey": "object:5687",
               "format": "short",
               "label": null,
               "logBase": 1,
@@ -3007,7 +3106,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS__VICTORIAMETRICS}",
+          "datasource": "Prometheus",
           "decimals": 2,
           "editable": true,
           "error": false,
@@ -3058,7 +3157,6 @@
           "renderer": "flot",
           "seriesOverrides": [
             {
-              "$$hashKey": "object:4263",
               "alias": "/limits：.*/",
               "color": "#C4162A"
             }
@@ -3116,7 +3214,6 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:5686",
               "format": "bytes",
               "label": null,
               "logBase": 1,
@@ -3125,7 +3222,6 @@
               "show": true
             },
             {
-              "$$hashKey": "object:5687",
               "format": "short",
               "label": null,
               "logBase": 1,
@@ -3144,7 +3240,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS__VICTORIAMETRICS}",
+          "datasource": "Prometheus",
           "decimals": 2,
           "editable": true,
           "error": false,
@@ -3234,7 +3330,6 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:5607",
               "format": "percent",
               "label": "",
               "logBase": 1,
@@ -3243,7 +3338,6 @@
               "show": true
             },
             {
-              "$$hashKey": "object:5608",
               "format": "short",
               "label": null,
               "logBase": 1,
@@ -3262,7 +3356,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS__VICTORIAMETRICS}",
+          "datasource": "Prometheus",
           "decimals": 2,
           "editable": true,
           "error": false,
@@ -3366,7 +3460,6 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:5686",
               "format": "percent",
               "label": null,
               "logBase": 1,
@@ -3375,7 +3468,6 @@
               "show": true
             },
             {
-              "$$hashKey": "object:5687",
               "format": "short",
               "label": null,
               "logBase": 1,
@@ -3394,7 +3486,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS__VICTORIAMETRICS}",
+          "datasource": "Prometheus",
           "decimals": 2,
           "editable": true,
           "error": false,
@@ -3445,7 +3537,6 @@
           "renderer": "flot",
           "seriesOverrides": [
             {
-              "$$hashKey": "object:3793",
               "alias": "/limits：.*/",
               "color": "#C4162A"
             }
@@ -3512,7 +3603,6 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:5686",
               "format": "bytes",
               "label": null,
               "logBase": 1,
@@ -3521,7 +3611,6 @@
               "show": true
             },
             {
-              "$$hashKey": "object:5687",
               "format": "short",
               "label": null,
               "logBase": 1,
@@ -3541,12 +3630,12 @@
     },
     {
       "collapsed": true,
-      "datasource": "${DS__VICTORIAMETRICS}",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 22
+        "y": 20
       },
       "id": 43,
       "panels": [
@@ -3558,7 +3647,7 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
-          "datasource": "${DS__VICTORIAMETRICS}",
+          "datasource": "Prometheus",
           "decimals": 2,
           "editable": true,
           "error": false,
@@ -3673,7 +3762,6 @@
           },
           "yaxes": [
             {
-              "$$hashKey": "object:8106",
               "format": "binbps",
               "label": null,
               "logBase": 1,
@@ -3682,7 +3770,6 @@
               "show": true
             },
             {
-              "$$hashKey": "object:8107",
               "format": "short",
               "label": null,
               "logBase": 1,
@@ -3713,8 +3800,13 @@
     "list": [
       {
         "allValue": "",
-        "current": {},
-        "datasource": "${DS__VICTORIAMETRICS}",
+        "current": {
+          "isNone": true,
+          "selected": false,
+          "text": "None",
+          "value": ""
+        },
+        "datasource": "Prometheus",
         "definition": "label_values(origin_prometheus)",
         "error": null,
         "hide": 0,
@@ -3736,8 +3828,12 @@
       },
       {
         "allValue": "",
-        "current": {},
-        "datasource": "${DS__VICTORIAMETRICS}",
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": "Prometheus",
         "definition": "label_values(kube_node_info{origin_prometheus=~\"$origin_prometheus\"},node)",
         "error": null,
         "hide": 0,
@@ -3759,8 +3855,12 @@
       },
       {
         "allValue": "",
-        "current": {},
-        "datasource": "${DS__VICTORIAMETRICS}",
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": "Prometheus",
         "definition": "label_values(kube_namespace_labels{origin_prometheus=~\"$origin_prometheus\"},namespace)",
         "error": null,
         "hide": 0,
@@ -3782,8 +3882,12 @@
       },
       {
         "allValue": "",
-        "current": {},
-        "datasource": "${DS__VICTORIAMETRICS}",
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": "Prometheus",
         "definition": "label_values(kube_pod_container_info{origin_prometheus=~\"$origin_prometheus\",namespace=~\"$NameSpace\"},container)",
         "error": null,
         "hide": 0,
@@ -3805,8 +3909,12 @@
       },
       {
         "allValue": "",
-        "current": {},
-        "datasource": "${DS__VICTORIAMETRICS}",
+        "current": {
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": "Prometheus",
         "definition": "label_values(kube_pod_container_info{origin_prometheus=~\"$origin_prometheus\",namespace=~\"$NameSpace\",container=~\"$Container\"},pod)",
         "error": null,
         "hide": 0,
@@ -3834,7 +3942,6 @@
   },
   "timepicker": {
     "refresh_intervals": [
-      "5s",
       "10s",
       "30s",
       "1m",
@@ -3860,5 +3967,5 @@
   "timezone": "browser",
   "title": "1    Kubernetes for Prometheus Dashboard CN 20201209",
   "uid": "SpSQKcpMz",
-  "version": 24
+  "version": 1
 }
