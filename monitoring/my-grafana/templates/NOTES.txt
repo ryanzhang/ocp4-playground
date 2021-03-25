@@ -1,2 +1,4 @@
-1. Install or update grafana-operator
-2. Installed or update grafana & grafana-dashboard
+修改my-grafana CR更改为 如下设置:
+1. 增加signout
+2. 增加指定route的hostname
+3. 增加储存设置，这样就会自动创建pvc 其中label使用用来绑定PV用的;

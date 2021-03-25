@@ -4,6 +4,7 @@ metadata:
   labels:
     app: grafana
   name: cluster-cn-metrics
+  namespace: {{ .Values.namespace }}
 spec:
   name: k8s-cn-metrics.json
   json: |

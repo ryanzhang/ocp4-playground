@@ -2,11 +2,11 @@ apiVersion: integreatly.org/v1alpha1
 kind: Grafana
 metadata:
   name: {{ .Values.nameOverride }}
-  namespace: {{ .Values.nameOverride }}
+  namespace: {{ .Values.namespace }}
 spec:
   config:
     auth:
-      disable_signout_menu: true
+      disable_signout_menu: false
     auth.anonymous:
       enabled: true
     log:
@@ -21,5 +21,14 @@ spec:
       operator: In
       values:
       - grafana
+  dataStorage:
+    labels: # Additional labels for the PVC
+      app: grafana
+    annotations: # Additional annotations for the PVC
+      app: grafana
+    accessModes: # An array of access modes, e.g. `ReadWriteOnce`
+    - ReadWriteMany
+    size: '10Gi'        # Requested size, e.g. `10Gi`
   ingress:
     enabled: true
+    hostname: {{ .Values.nameOverride }}.{{ .Values.subdomain }}

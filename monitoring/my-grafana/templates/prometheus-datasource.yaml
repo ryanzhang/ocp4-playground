@@ -2,7 +2,7 @@ apiVersion: integreatly.org/v1alpha1
 kind: GrafanaDataSource
 metadata:
   name: prometheus-grafanadatasource
-  namespace: {{ .Values.nameOverride }}
+  namespace: {{ .Values.namespace }}
 spec:
   datasources:
   - access: proxy
@@ -18,6 +18,4 @@ spec:
     type: prometheus
     url: https://thanos-querier.openshift-monitoring.svc.cluster.local:9091
   name: prometheus-grafanadatasource.yaml
-status:
-  message: success
-  phase: reconciling
+
