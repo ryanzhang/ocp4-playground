@@ -3,12 +3,12 @@
 kind: "Endpoints"
 apiVersion: "v1"
 metadata:
-  name: ext-metric-{{ $parts._0 }}
+  name: ext-infra-metric-{{ $parts._0 }}
 subsets: 
   - addresses:
     - ip: {{ $parts._1 }}
     ports:
-      - port: {{ $.Values.service.port }} 
+      - port: {{ $.Values.service.infra_metric_port }} 
         name: "web"
 ---
 {{- end }}

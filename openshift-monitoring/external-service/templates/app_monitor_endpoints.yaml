@@ -1,0 +1,14 @@
+{{- range .Values.external_app_list }}
+{{- $parts := split "_" . }}
+kind: "Endpoints"
+apiVersion: "v1"
+metadata:
+  name: ext-app-metric-{{ $parts._0 }}
+subsets: 
+  - addresses:
+    - ip: {{ $parts._1 }}
+    ports:
+      - port: {{ $parts._2 }} 
+        name: "web"
+---
+{{- end }}

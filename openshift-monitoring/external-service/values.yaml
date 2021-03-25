@@ -5,7 +5,7 @@
 nameOverride: ""
 fullnameOverride: ""
 service:
-  port: 9100  
+  infra_metric_port: 9100
 monitor:
   interval: 30s  
 external_infra_list: 
@@ -26,3 +26,6 @@ external_infra_list:
   - lb-httpd2-w541_192.168.2.46
   - lb-httpd3-w541_192.168.2.47
   - lb-httpd4-w541_192.168.2.48
+external_app_list:
+  - todo-app_192.168.2.10_8080
+  - squid_192.168.2.28_9101

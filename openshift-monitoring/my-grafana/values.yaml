@@ -1,0 +1,82 @@
+# Default values for my-grafana.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+prometheusBearToken: eyJhbGciOiJSUzI1NiIsImtpZCI6ImVzcGd4VHhLOW1fRWRxUGJwNGRRWkpzSzJ4TUhIMWhHWG9hSldUUGJDZ1kifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJnYWxheHktZ3JhZmFuYSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJncmFmYW5hLXNlcnZpY2VhY2NvdW50LXRva2VuLWRzY2syIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImdyYWZhbmEtc2VydmljZWFjY291bnQiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiJkMzA4Zjc2YS1mNWFjLTQxZjgtYTQ0ZS05MWRiZDgwOWY5OGIiLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6Z2FsYXh5LWdyYWZhbmE6Z3JhZmFuYS1zZXJ2aWNlYWNjb3VudCJ9.GbziY_u2usab-48eknEXpZLzbQ-CuaCKnAnwBOdiADxdjYg-ti5XVFn7NVUdVUZh-_5xU3h9ayDYwHb3AfBf7pDtFB3Z4-VYftzrc0103GpmOvagSBRk4cPYdqr-L7gXTBVttJJNcRjHCf8qZpzxR1lTpPQ6MuAeGlNJ6RiWyzhxXD2zVtR3MPJ5cXEPy4Hw7qUqkP2DnIqG1xuOWuMfPjfYulQN_g01CGn-ZPDzXzfALfsz2jCr2AyB5Dq8c0yvrNGFmclEm_npOwiGpObv6bNVzE67hLSA5Nd2cNx7DMXtuUmsJFnakJg4aIYdjw_LQ2Breias0QQoG_l09xpG4g
+
+nameOverride: "my-grafana"
+subdomain: "apps-crc.testing"
+
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+imagePullSecrets: []
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths: []
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

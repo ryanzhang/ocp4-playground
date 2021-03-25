@@ -43,4 +43,20 @@ spec:
 ```
 它就是通过service进行Label match来查找metrics;
 
+# 自定义Dashboard
+## 安装自定义dashboard
+* 通过operatorHub安装grafana
+* my-grafana是自定义的dashbaord，区别于平台提供的,OCP4平台提供的grafana是只读的,目录里面还包含自定义的dashboard CR文件和raw json文件
+```bash
+helm upgrade --install my-grafana my-grafana/ -n my-grafana
+```
+
+## 通过Helm安装serviceMonitor
+* prmetheus-external-service 是一个chart 用来安装external-service的代理服务 从而可以被Prometheus监控
+```bash
+helm upgrade --install external-service external-service -n external-service 
+```
+
+
+
 

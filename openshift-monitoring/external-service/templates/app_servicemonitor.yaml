@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: app-{{ .Chart.Name }}
+  namespace: external-service
+spec:
+  endpoints:
+  - interval: {{ .Values.monitor.interval }}
+    port: web
+    scheme: http
+  selector:
+    matchLabels:
+      external-app-monitor: "true"

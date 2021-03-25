@@ -1,16 +1,16 @@
-{{- range .Values.external_infra_list }}
+{{- range .Values.external_app_list }}
 {{- $parts := split "_" . }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: ext-metric-{{ $parts._0}}
+  name: ext-app-metric-{{ $parts._0}}
   labels:
-    external-infra-monitor: "true"
+    external-app-monitor: "true"
   namespace: external-service
 spec:
   ports:
   - name: web
-    port: {{ $.Values.service.port }}
+    port: {{ $parts._2 }}
     protocol: TCP
     targetPort: 8080
   selector: {}
