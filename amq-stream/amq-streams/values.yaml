@@ -4,10 +4,12 @@
 nameOverride: "my-amqstreams"
 namespace: "amq-streams"
 subdomain: "apps-crc.testing"
+prometheusDS: "prometheus"
 
 kafkaReplicaCount: 3
 myTopicPartitionsCount: 3
 myTopicReplicas: 3
+
 
 image:
   repository: nginx

@@ -1,5 +1,5 @@
-Install AMQ String(Kafka cluster)
-1. enable metrics
-2. included connect, bridge,source-connector, kafka-exporter, cruise-control
-3. Created "my-topic", user "quarkus"
+Update AMQ String(Kafka cluster)
+1. enable pod-monitor
+2. enable prometheus rules
+
 
