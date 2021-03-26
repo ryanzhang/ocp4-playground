@@ -1,6 +1,17 @@
 # 指定义监控
 文档: https://docs.openshift.com/container-platform/4.7/monitoring/configuring-the-monitoring-stack.html 
 
+# 安装my-grafana
+通过Helm安装预置的dashboard,grafana资源和设置;
+grafana具备存储化,存储位置要查看pvc
+
+```
+helm upgrade --install my-grafana my-grafana/ -n my-grafana --set token=$(oc serviceaccounts get-token grafana-serviceaccount -n my-grafana) 
+helm upgrade --install my-grafana my-grafana/ -n my-grafana --set token=$(oc serviceaccounts get-token grafana-serviceaccount -n my-grafana) 
+```
+注意如果是第一次这里需要运行两遍，因为serviceaccount第一次还没创建就获取不到serviceaccount
+
+
 步骤
 ## enable openshift-user-workload-monitoring
 oc apply -f cluster-monitoring-config.yaml

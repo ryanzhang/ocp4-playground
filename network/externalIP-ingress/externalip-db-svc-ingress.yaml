@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: externalip-db
-  namespace: cctv-paas-sample
+  namespace: quarkus-todo-app
 spec:
   externalIPs:
   - 192.168.130.11
