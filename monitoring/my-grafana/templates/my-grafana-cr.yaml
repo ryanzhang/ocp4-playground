@@ -4,6 +4,7 @@ metadata:
   name: {{ .Values.nameOverride }}
   namespace: {{ .Values.namespace }}
 spec:
+  baseImage: quay.io/integreatly/grafana@sha256:174987125ca36f8de41184267d15b7a68c65c19be6979bfaa0b49f205f58f479
   config:
     auth:
       disable_signout_menu: false
@@ -29,6 +30,7 @@ spec:
     accessModes: # An array of access modes, e.g. `ReadWriteOnce`
     - ReadWriteMany
     size: '10Gi'        # Requested size, e.g. `10Gi`
+    class: "nfs-client"
   ingress:
     enabled: true
     hostname: {{ .Values.nameOverride }}.{{ .Values.subdomain }}

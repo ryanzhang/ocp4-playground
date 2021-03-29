@@ -7,11 +7,31 @@ grafana具备存储化,存储位置要查看pvc
 
 ```
 helm upgrade --install my-grafana my-grafana/ -n my-grafana --set token=$(oc serviceaccounts get-token grafana-serviceaccount -n my-grafana) 
-helm upgrade --install my-grafana my-grafana/ -n my-grafana --set token=$(oc serviceaccounts get-token grafana-serviceaccount -n my-grafana) 
+#部署到指定的cluster
+helm upgrade --install my-grafana my-grafana/ -n my-grafana --set token=$(oc serviceaccounts get-token grafana-serviceaccount -n my-grafana) --set subdomain=apps.ocp1.lmc.io
 ```
 注意如果是第一次这里需要运行两遍，因为serviceaccount第一次还没创建就获取不到serviceaccount
 
-
+替换docker.io grafana 镜像地址
+```yaml
+kind: Grafana
+metadata:
+  name: {{ .Values.nameOverride }}
+  namespace: {{ .Values.namespace }}
+spec:
+  baseImage: quay.io/integreatly/grafana@sha256:174987125ca36f8de41184267d15b7a68c65c19be6979bfaa0b49f205f58f479
+  config:
+    auth:
+      disable_signout_menu: false
+    auth.anonymous:
+      enabled: true
+    log:
+      level: warn
+      mode: console
+    security:
+      admin_password: admin
+      admin_user: admin
+```
 步骤
 ## enable openshift-user-workload-monitoring
 oc apply -f cluster-monitoring-config.yaml
