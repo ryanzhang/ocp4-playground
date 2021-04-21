@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: common-infra-config-crc-testing
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://api.crc.testing:6443
+  project: default
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: common
+    repoURL: https://github.com.cnpmjs.org/ryanzhang/ocp4-playground.git
+    targetRevision: gitops
