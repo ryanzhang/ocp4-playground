@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  htpasswd: YWRtaW46JDJ5JDA1JGJzY3FWMC9qMVI2M1guU3FiUXYwbGVXUFFueTVMWUgvUVVUek9ETFVTLzlTTHAvSS8wTWdxCmRldmVsb3BlcjokMnkkMDUkNnVIaEFMOUNPaGVOaVRweW00ekIwLmouN0g4WVZMaUg1SWowbDlGc0RHTnNXNnVJeXFTR3UKcXVhcmt1czokMnkkMDUkNlBCWGx4eXBUZjhadWE4WVh3aHhsT1AudncvclFpaVByTWtWU0pnMVByUkRFNVkybnh5MFcKc3ByaW5nOiQyeSQwNSRQSmMwZFl2VkJlR2JDMVAuVmJWR2pPRWhIOW16ZDNvbS9UdmRXTGxYdXJNeXI3UUFqc2VucQo=
+kind: Secret
+metadata:
+  name: v4-0-config-user-idp-0-file-data
+  namespace: openshift-authentication
+type: Opaque
