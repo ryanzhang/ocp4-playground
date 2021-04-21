@@ -6,7 +6,7 @@ token: "<please specify in cli >"
 
 nameOverride: "my-grafana"
 namespace: "my-grafana"
-subdomain: "apps-crc.testing"
+subdomain: "ocp1.galaxy.io"
 
 replicaCount: 1
 
