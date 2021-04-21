@@ -8,3 +8,11 @@ oc create secret generic htpass-secret --from-file htpasswd=./htpasswd -n opensh
 
 如果没有OAuth CR 资源
 oc apply -f htpassword-cr.yaml
+
+本目录提供的htpass-secret.yaml默认包含用户:
+```
+admin/admin
+developer/developer
+quarkus/quarkus
+spring/spring
+```
