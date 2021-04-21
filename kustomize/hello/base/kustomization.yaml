@@ -1,0 +1,8 @@
+commonLabels:
+  app: my-hello
+
+resources:
+- deployment.yaml
+- service.yaml
+- configMap.yaml
+- grouping.yaml
