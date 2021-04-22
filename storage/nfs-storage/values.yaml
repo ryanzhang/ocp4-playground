@@ -4,5 +4,3 @@
 
 nfs.server: nuc1.galaxy
 nfs-path: /exports/ocp1.galaxy
-
-nameOverride: "nfs-storage"
