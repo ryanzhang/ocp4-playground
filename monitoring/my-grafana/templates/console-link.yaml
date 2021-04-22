@@ -3,7 +3,7 @@ kind: ConsoleLink
 metadata:
   name: application-menu-my-grafana
 spec:
-  href: 'https://my-grafana.{{ .Values.namespace }}'
+  href: 'https://my-grafana.{{ .Values.subdomain }}'
   location: ApplicationMenu
   text: My Grafana
   applicationMenu:
