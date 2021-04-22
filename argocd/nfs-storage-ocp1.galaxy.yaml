@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nfs-storageclass-ocp1-galaxy
+spec:
+  destination:
+    name: ''
+    namespace: default
+    server: 'https://api.ocp1.galaxy.io:6443'
+  source:
+    path: storage/nfs-storage
+    repoURL: 'https://github.com.cnpmjs.org/ryanzhang/ocp4-playground.git'
+    targetRevision: gitops
+    helm:
+      values: |-
+        nfs.server: "nuc1.galaxy"
+        nfs-path: "/exports/ocp1.galaxy"
+  project: default
