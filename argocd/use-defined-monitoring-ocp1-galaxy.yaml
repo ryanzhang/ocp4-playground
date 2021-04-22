@@ -3,18 +3,15 @@ kind: Application
 metadata:
   name: use-defined-monitoring-ocp1-galaxy
   namespace: argocd
-  resourceVersion: "10102372"
-  selfLink: /apis/argoproj.io/v1alpha1/namespaces/argocd/applications/use-defined-monitoring-ocp1-galaxy
-  uid: 166d891e-4812-4735-9e47-f26c6c8e0d2c
 spec:
   destination:
-    namespace: default
+    namespace: my-grafana
     server: https://api.ocp1.galaxy.io:6443
   project: default
   source:
-    directory:
-      jsonnet: {}
-      recurse: true
-    path: monitoring
+    path: monitoring/my-grafana
     repoURL: https://github.com.cnpmjs.org/ryanzhang/ocp4-playground.git
     targetRevision: gitops
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true

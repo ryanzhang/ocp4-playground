@@ -5,6 +5,8 @@
 通过Helm安装预置的dashboard,grafana资源和设置;
 grafana具备存储化,存储位置要查看pvc
 
+You would need 
+
 ```
 helm upgrade --install my-grafana my-grafana/ -n my-grafana --set token=$(oc serviceaccounts get-token grafana-serviceaccount -n my-grafana) 
 #部署到指定的cluster

@@ -1,18 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nfs-storageclass-ocp1-galaxy
+  name: nfs-client-ocp1-galaxy
+  namespace: argocd
 spec:
   destination:
-    name: ''
-    namespace: default
-    server: 'https://api.ocp1.galaxy.io:6443'
-  source:
-    path: storage/nfs-storage
-    repoURL: 'https://github.com.cnpmjs.org/ryanzhang/ocp4-playground.git'
-    targetRevision: gitops
-    helm:
-      values: |-
-        nfs.server: "nuc1.galaxy"
-        nfs-path: "/exports/ocp1.galaxy"
+    namespace: nfs-storage
+    server: https://api.ocp1.galaxy.io:6443
   project: default
+  source:
+    helm:
+      parameters:
+      - name: nfs.server
+        value: nfs.galaxy
+      - name: nfs.path
+        value: /exports/ocp1.galaxy
+    path: charts/nfs-subdir-external-provisioner
+    repoURL: https://github.com.cnpmjs.org/kubernetes-sigs/nfs-subdir-external-provisioner.git
+    targetRevision: nfs-subdir-external-provisioner-4.0.8
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
