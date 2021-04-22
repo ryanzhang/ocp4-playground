@@ -7,5 +7,5 @@ spec:
   location: ApplicationMenu
   text: My Grafana
   applicationMenu:
-    section: Kubernetes Blogs
+    section: My Grafana
     imageURL: https://i.ibb.co/pZ0Lxdb/Logo-Red-Hat-Hat-Color-RGB.png
