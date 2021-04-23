@@ -4,5 +4,7 @@ metadata:
   name: awx
 spec:
   tower_ingress_type: Route
-  tower_redis_image: quay.io/quay/redis
-  tower_redis_image_version: latest
+  tower_ee_images:
+    - name: tower_redis_image
+      image: quay.io/quay/redis
+    
