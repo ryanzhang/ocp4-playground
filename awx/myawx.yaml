@@ -3,4 +3,6 @@ kind: AWX
 metadata:
   name: awx
 spec:
-  tower_ingress_type: Ingress
+  tower_ingress_type: Route
+  tower_redis_image: quay.io/quay/redis
+  tower_redis_image_version: latest
