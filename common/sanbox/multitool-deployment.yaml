@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: multitool
-  namespace: my-grafana
+  namespace: sandbox
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
