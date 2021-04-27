@@ -1,4 +1,3 @@
-
 apiVersion: config.openshift.io/v1
 kind: Proxy
 metadata:
@@ -6,9 +5,4 @@ metadata:
 spec:
   httpProxy: http://squid.apac.redhat.com:3128
   httpsProxy: http://squid.apac.redhat.com:3128
-  noProxy: quay.io,registry.redhat.io 
-  readinessEndpoints:
-  - http://www.google.com 
-  - https://www.google.com
-  # trustedCA:
-  #   name: user-ca-bundle 
+ 

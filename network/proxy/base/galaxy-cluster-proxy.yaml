@@ -1,12 +1,11 @@
-
 apiVersion: config.openshift.io/v1
 kind: Proxy
 metadata:
   name: cluster
 spec:
-  httpProxy: http://192.168.2.15:3128
-  httpsProxy: http://192.168.2.15:3128
-  noProxy: quay.io,registry.redhat.io 
+  httpProxy: http://192.168.2.28:3128
+  httpsProxy: http://192.168.2.28:3128
+  noProxy: quay.io,registry.redhat.io,*.svc, *.svc.cluster.local 
   readinessEndpoints:
   - http://www.google.com 
   - https://www.google.com
