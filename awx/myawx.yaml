@@ -4,6 +4,7 @@ metadata:
   name: awx
 spec:
   tower_ingress_type: Route
+  tower_postgres_storage_class: nfs-client
   # tower_postgres_image: registry.redhat.io/rhel8/postgresql-12
   # tower_ee_images:
   #   - name: tower_redis_image
