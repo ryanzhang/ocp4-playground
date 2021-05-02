@@ -1,0 +1,8 @@
+commonLabels:
+  app: my-hello
+
+resources:
+- admin-password-secret.yaml
+- awx-operator.yaml
+- console-link.yaml
+- myawx.yaml

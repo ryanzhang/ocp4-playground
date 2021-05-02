@@ -3,9 +3,9 @@ kind: Proxy
 metadata:
   name: cluster
 spec:
-  httpProxy: http://squid.galaxy:3128
-  httpsProxy: http://squid.galaxy:3128
-  noProxy: quay.io,registry.redhat.io,10.128.0.0/14,172.30.0.0/16 
+  httpProxy: http://192.168.2.15:3128
+  httpsProxy: http://192.168.2.15:3128
+  noProxy: quay.io,registry.redhat.io,.svc,.cluster.local,master.ocp1.galaxy.io 
   readinessEndpoints:
   - http://www.google.com 
   - https://www.google.com

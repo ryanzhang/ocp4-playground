@@ -1,2 +1,0 @@
-1. 根据Value.yaml中定义的资源列表创建 service 和 endpoints代理 
-从而让Prometheus可以收集外部的这些/metrics

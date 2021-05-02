@@ -1,0 +1,11 @@
+apiVersion: console.openshift.io/v1
+kind: ConsoleLink
+metadata:
+  name: application-menu-my-argocd
+spec:
+  href: 'https://argocd-server-argocd.apps.ocp2.galaxy.io'
+  location: ApplicationMenu
+  text: My ArgoCD
+  applicationMenu:
+    section: My ArgoCD
+    imageURL: https://i.ibb.co/pZ0Lxdb/Logo-Red-Hat-Hat-Color-RGB.png

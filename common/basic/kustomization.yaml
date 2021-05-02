@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+commonLabels:
+  app: common
+
+resources:
+- oauth/cluster-admin-rolebiding.yaml
+- oauth/htpass-secret.yaml
+- oauth/htpasswd-cr.yaml
+- oauth/v4-0-config-user-idp-0-file-data.yaml
+- sandbox/busybox-deployment.yaml
+- sandbox/multitool-deployment.yaml
+- sandbox/namespace.yaml
+- argocd-console-link.yaml
