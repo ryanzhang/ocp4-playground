@@ -3,7 +3,7 @@ kind: ConsoleLink
 metadata:
   name: application-menu-my-awx
 spec:
-  href: 'https://awx.ocp1.galaxy.io'
+  href: 'https://awx-awx.ocp1.galaxy.io'
   location: ApplicationMenu
   text: My AWX
   applicationMenu:
