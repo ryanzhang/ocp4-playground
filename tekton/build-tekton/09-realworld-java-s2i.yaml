@@ -1,0 +1,59 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: maven-app-deploy
+spec:
+  # params:
+  #   - name: user
+  #     type: string
+  #     description: User name for registry
+  #   - name: pass
+  #     type: string
+  #     description: Registry password
+  #   - name: image-name
+  #     type: string
+  #     description: Name of the image to produce (will be user/image-name)
+  resources:
+    - name: git-repo
+      type: git
+  tasks:
+    - name: maven-compile
+      taskRef:
+        name: maven
+        kind: ClusterTask
+      params:
+        - name: GOALS
+          value: [package]
+      resources:
+        inputs:
+          - name: repo
+            resource: git-repo
+    - name: maven-test
+      taskRef:
+        name: maven
+        kind: ClusterTask
+      params:
+        - name: GOALS
+          value: [test]
+      resources:
+        inputs:
+          - name: repo
+            resource: git-repo
+    - name: build-and-deploy
+      # params:
+      #   - name: user
+      #     value: $(params.user)
+      #   - name: pass
+      #     value: $(params.pass)
+      #   - name: image-name
+      #     value: $(params.image-name)
+      taskRef:
+        kind: ClusterTask
+        name: s2i-java
+      resources:
+        inputs:
+          - name: repo
+            resource: git-repo
+      runAfter:
+        - maven-compile
+        - maven-test
