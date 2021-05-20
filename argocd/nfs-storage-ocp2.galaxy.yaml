@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nfs-client-ocp2-galaxy
+  namespace: argocd
+spec:
+  destination:
+    namespace: nfs-storage
+    server: https://api.ocp2.galaxy.io:6443
+  project: default
+  source:
+    helm:
+      parameters:
+      - name: nfs.server
+        value: nfs.galaxy
+      - name: nfs.path
+        value: /exports/ocp2.galaxy
+    path: charts/nfs-subdir-external-provisioner
+    repoURL: https://github.com.cnpmjs.org/kubernetes-sigs/nfs-subdir-external-provisioner.git
+    targetRevision: nfs-subdir-external-provisioner-4.0.8
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
