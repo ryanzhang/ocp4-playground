@@ -1,0 +1,52 @@
+kind: List
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: ServiceAccount
+  metadata:
+    name: pod-pruner
+    namespace: housekeeping
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    name: pod-pruner-admin
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: pod-pruner
+    namespace: housekeeping
+- apiVersion: batch/v1beta1
+  kind: CronJob
+  metadata:
+    name: pod-pruner
+    namespace: housekeeping
+  spec:
+    schedule: "0 * * * *"
+    concurrencyPolicy: Forbid
+    successfulJobsHistoryLimit: 1
+    failedJobsHistoryLimit: 3
+    jobTemplate:
+      spec:
+        template:
+          spec:
+            restartPolicy: OnFailure
+            containers:
+            - image: "quay.io/openshift/origin-cli:4.1"
+              resources:
+                requests:
+                  cpu: 500m
+                  memory: 1Gi
+              terminationMessagePolicy: FallbackToLogsOnError
+              command:
+              - oc
+              args:
+              - delete
+              - pod
+              - --field-selector=status.phase==Failed
+              - -n 
+              - classic-cicd
+              name: pod-pruner
+            serviceAccountName: pod-pruner

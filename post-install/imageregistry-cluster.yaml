@@ -1,0 +1,148 @@
+apiVersion: imageregistry.operator.openshift.io/v1
+kind: Config
+metadata:
+  creationTimestamp: "2021-04-25T12:22:36Z"
+  finalizers:
+  - imageregistry.operator.openshift.io/finalizer
+  generation: 5
+  managedFields:
+  - apiVersion: imageregistry.operator.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:defaultRoute: {}
+    manager: kubectl-patch
+    operation: Update
+    time: "2021-04-25T12:36:09Z"
+  - apiVersion: imageregistry.operator.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:managementState: {}
+        f:storage:
+          f:pvc: {}
+    manager: kubectl-edit
+    operation: Update
+    time: "2021-05-20T03:35:48Z"
+  - apiVersion: imageregistry.operator.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers: {}
+      f:spec:
+        .: {}
+        f:httpSecret: {}
+        f:logLevel: {}
+        f:observedConfig: {}
+        f:operatorLogLevel: {}
+        f:proxy: {}
+        f:replicas: {}
+        f:requests:
+          .: {}
+          f:read:
+            .: {}
+            f:maxWaitInQueue: {}
+          f:write:
+            .: {}
+            f:maxWaitInQueue: {}
+        f:rolloutStrategy: {}
+        f:storage:
+          .: {}
+          f:managementState: {}
+          f:pvc:
+            f:claim: {}
+        f:unsupportedConfigOverrides: {}
+      f:status:
+        .: {}
+        f:conditions: {}
+        f:generations: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:storage:
+          .: {}
+          f:managementState: {}
+          f:pvc:
+            .: {}
+            f:claim: {}
+        f:storageManaged: {}
+    manager: cluster-image-registry-operator
+    operation: Update
+    time: "2021-05-20T03:35:49Z"
+  name: cluster
+  resourceVersion: "34363163"
+  selfLink: /apis/imageregistry.operator.openshift.io/v1/configs/cluster
+  uid: b447e69a-1eac-4084-acf9-5c74b6d1e176
+spec:
+  defaultRoute: true
+  httpSecret: 0dc5da931c7fc555622a40eb0a00eba2d24019c4d3eb55c81d08e552b00b8b0a25650a2e796bd0cf48cf4b7162280024eaa5d53cd198d967f727dd8a00d6831d
+  logLevel: Normal
+  managementState: Managed
+  observedConfig: null
+  operatorLogLevel: Normal
+  proxy: {}
+  replicas: 1
+  requests:
+    read:
+      maxWaitInQueue: 0s
+    write:
+      maxWaitInQueue: 0s
+  rolloutStrategy: RollingUpdate
+  storage:
+    managementState: Unmanaged
+    pvc:
+      claim: image-registry-storage
+  unsupportedConfigOverrides: null
+status:
+  conditions:
+  - lastTransitionTime: "2021-04-25T12:22:36Z"
+    reason: AsExpected
+    status: "False"
+    type: ImageRegistryCertificatesControllerDegraded
+  - lastTransitionTime: "2021-04-25T12:22:36Z"
+    reason: AsExpected
+    status: "False"
+    type: NodeCADaemonControllerDegraded
+  - lastTransitionTime: "2021-04-25T12:22:36Z"
+    reason: AsExpected
+    status: "False"
+    type: ImageConfigControllerDegraded
+  - lastTransitionTime: "2021-05-20T03:35:57Z"
+    message: The registry is ready
+    reason: Ready
+    status: "False"
+    type: Progressing
+  - lastTransitionTime: "2021-05-20T03:35:57Z"
+    message: The registry is ready
+    reason: Ready
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2021-04-25T12:22:37Z"
+    status: "False"
+    type: Degraded
+  - lastTransitionTime: "2021-05-20T03:35:48Z"
+    status: "False"
+    type: Removed
+  - lastTransitionTime: "2021-05-20T03:35:48Z"
+    reason: PVC Exists
+    status: "True"
+    type: StorageExists
+  generations:
+  - group: apps
+    hash: ""
+    lastGeneration: 0
+    name: node-ca
+    namespace: openshift-image-registry
+    resource: daemonsets
+  - group: apps
+    hash: ""
+    lastGeneration: 2
+    name: image-registry
+    namespace: openshift-image-registry
+    resource: deployments
+  observedGeneration: 5
+  readyReplicas: 0
+  storage:
+    managementState: Unmanaged
+    pvc:
+      claim: image-registry-storage
+  storageManaged: false

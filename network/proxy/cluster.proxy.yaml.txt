@@ -1,0 +1,70 @@
+apiVersion: config.openshift.io/v1
+kind: Proxy
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"config.openshift.io/v1","kind":"Proxy","metadata":{"annotations":{},"name":"cluster"},"spec":{"httpProxy":"http://squid.galaxy:3128","httpsProxy":"http://squid.galaxy:3128","noProxy":"quay.io,registry.redhat.io,localhost,.svc,.cluster.local,.svc.cluster.local,.ocp1.galaxy.io","readinessEndpoints":["http://www.baidu.com"]}}
+  creationTimestamp: "2021-04-25T12:04:58Z"
+  generation: 15
+  managedFields:
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        .: {}
+        f:trustedCA:
+          .: {}
+          f:name: {}
+    manager: cluster-bootstrap
+    operation: Update
+    time: "2021-04-25T12:04:58Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+    manager: argocd-application-controller
+    operation: Update
+    time: "2021-04-29T14:20:18Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:httpProxy: {}
+        f:httpsProxy: {}
+        f:noProxy: {}
+    manager: cluster-network-operator
+    operation: Update
+    time: "2021-05-20T14:21:35Z"
+  - apiVersion: config.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:spec:
+        f:httpProxy: {}
+        f:httpsProxy: {}
+        f:noProxy: {}
+        f:readinessEndpoints: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2021-05-20T14:21:35Z"
+  name: cluster
+  resourceVersion: "35372175"
+  selfLink: /apis/config.openshift.io/v1/proxies/cluster
+  uid: 021180fb-46d6-4c43-97f6-9343117f9648
+spec:
+  httpProxy: http://squid.galaxy:3128
+  httpsProxy: http://squid.galaxy:3128
+  noProxy: quay.io,registry.redhat.io,localhost,.svc,.cluster.local,.svc.cluster.local,.ocp1.galaxy.io
+  readinessEndpoints:
+  - http://www.baidu.com
+  trustedCA:
+    name: ""
+status:
+  httpProxy: http://squid.galaxy:3128
+  httpsProxy: http://squid.galaxy:3128
+  noProxy: .cluster.local,.ocp1.galaxy.io,.svc,.svc.cluster.local,10.0.0.0/16,10.128.0.0/14,127.0.0.1,172.30.0.0/16,api-int.ocp1.galaxy.io,localhost,quay.io,registry.redhat.io
